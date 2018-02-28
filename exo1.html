@@ -11,18 +11,20 @@
 <script>
 
     const canvas = document.getElementById('glCanvas');
-    var renderer = new THREE.WebGLRenderer({canvas: canvas, alpha: true, antialias: true,});
+    var renderer = new THREE.WebGLRenderer({canvas: canvas, alpha: true, antialias: true});
     renderer.setClearColor(0x000000, 0);
     var clock = new THREE.Clock();
     var scene = new THREE.Scene();
-    var camera = new THREE.PerspectiveCamera(45, canvas.width/canvas.height, 0.1, 1000);
-    camera.position.z = 50;
-    var orbitControls = new THREE.OrbitControls(camera);
+    var camera = new THREE.PerspectiveCamera(45, canvas.width/canvas.height, 0.1, 10000);
+    camera.position.z = 1000;
+
+
+    //var orbitControls = new THREE.OrbitControls(camera);
 
     var loader = new THREE.FontLoader();
     loader.load( './images/Helvetica_Regular.json', function ( font ) {
         console.log(font);
-        var geometry = new THREE.TextGeometry( 'a', {
+        var geometry = new THREE.TextGeometry( 'Salut ça va comment tu va toi?', {
             font: font,
             size: 80,
             height: 5,
@@ -34,8 +36,9 @@
         } );
     var material = new THREE.MeshPhongMaterial({ color: 0xFF0000});
     var cube = new THREE.Mesh( geometry, material );
+    cube.position.x -= 800;
         scene.add(cube);
-    } );
+    });
 
 
 /*
@@ -60,7 +63,7 @@
     function draw() {
        requestAnimationFrame(draw);
         var delta = clock.getDelta();
-        orbitControls.update(delta);
+        //orbitControls.update(delta);
 /*
 
         cube.rotation.x += 0.01;
@@ -71,7 +74,12 @@
 
     window.addEventListener("load", draw);
 </script>
-
+<form style="z-index: 999;">
+    First name:<br>
+    <input type="text" name="firstname"><br>
+    Last name:<br>
+    <input type="text" name="lastname">
+</form>
 
 
 
