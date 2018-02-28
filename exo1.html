@@ -34,7 +34,7 @@
             bevelSize: 8,
             bevelSegments: 5
         } );
-    var material = new THREE.MeshPhongMaterial({ color: 0xFF0000});
+    var material = new THREE.MeshNormalMaterial({ color: 0xFF0000});
     var cube = new THREE.Mesh( geometry, material );
     cube.position.x -= 800;
         scene.add(cube);
@@ -74,13 +74,20 @@
 
     window.addEventListener("load", draw);
 </script>
-<form style="z-index: 999;">
-    First name:<br>
-    <input type="text" name="firstname"><br>
-    Last name:<br>
-    <input type="text" name="lastname">
+<form style="z-index: 999;" id="formulaireDiapo">
+    Value:<br>
+    <input type="text" name="value1" id="value1"><br>
+    Value:<br>
+    <input type="text" name="value2" id="value2"><br>
+    Value:<br>
+    <input type="text" name="value3" id="value3"><br>
+    Value:<br>
+    <input type="text" name="value4" id="value4"><br>
 </form>
-
+<form style="z-index: 999;" id="formulairePreSuiv">
+    <input type="button" name="precedent" id="precedent" value="Précédent"  />
+    <input type="button" name="suivant" id="suivant" value="Suivant"  />
+</form>
 
 
 
